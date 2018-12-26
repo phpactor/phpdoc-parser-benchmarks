@@ -12,7 +12,8 @@ Parsers:
 - **Phpstan Parser**: The parser used by PHPStan.
 - **PhpDocumentor Parser**: The parser used by PHPDocumentor.
 
-Test data:
+Test data see (code
+[here](https://github.com/phpactor/phpdoc-parser-benchmarks/blob/master/lib/DocblockProvider.php):
 
 - **Faker Generator**: Large class docblock.
 - **Laravel Route**: Medium class docblock .
