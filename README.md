@@ -6,6 +6,11 @@ Benchmarks for PHPDoc parsers
 Some informal benchmarks for PHPDoc parsers using
 [PHPBench](https://github.com/phpbench/phpbench).
 
+Docblock parsing is an important performance bottleneck in Phpactor, these benchmarks
+are intended to measure the fast but (currently at least) poorly implemented
+Phpactor Docblock parser against other, more accurate, parsers. It is not
+recommended to use the Phpactor parser in it's current state in your own projects.
+
 Parsers:
 
 - **Phpactor Parser**: An awful but fast parser for Phpactor.
@@ -31,44 +36,38 @@ $ ./vendor/bin/phpbench run --report=parser
 
 Results (2018-12-26)
 --------------------
-
-Based on 50 cycles in 100 revolutions with a single cycle warmup.
-
-*Note that the Phpdocumentor docblock parser currently throws an nexception when
-parsing the Faker docblock.*
-
 ### set: Faker Generator
 
 benchmark | mem_peak | best | mean | mode | worst | rstdev | diff
  --- | --- | --- | --- | --- | --- | --- | --- 
-PhpactorBench | 1,295,448b | 2.354ms | 2.803ms | 2.490ms | 3.904ms | 18.04% | 1.00x
-PhpstanBench | 3,827,888b | 16.575ms | 17.443ms | 16.917ms | 23.565ms | 6.72% | 6.22x
+PhpactorBench | 1,196,144b | 0.324ms | 0.562ms | 0.414ms | 1.078ms | 44.28% | 1.00x
+PhpstanBench | 3,717,160b | 3.843ms | 5.128ms | 4.166ms | 8.687ms | 33.11% | 9.12x
 
 ### set: Laravel Route
 
 benchmark | mem_peak | best | mean | mode | worst | rstdev | diff
  --- | --- | --- | --- | --- | --- | --- | --- 
-PhpactorBench | 1,145,848b | 0.830ms | 1.042ms | 0.876ms | 1.450ms | 21.24% | 1.00x
-PhpstanBench | 2,010,968b | 5.109ms | 5.584ms | 5.318ms | 8.002ms | 11.93% | 5.36x
-PhpDocumentorBench | 1,602,024b | 3.159ms | 3.470ms | 3.279ms | 5.268ms | 15.54% | 3.33x
+PhpactorBench | 1,045,808b | 0.121ms | 0.245ms | 0.157ms | 0.396ms | 40.52% | 1.00x
+PhpstanBench | 1,901,232b | 1.173ms | 1.709ms | 1.267ms | 2.825ms | 37.19% | 6.97x
+PhpDocumentorBench | 1,442,752b | 0.597ms | 0.896ms | 0.665ms | 1.365ms | 33.81% | 3.65x
 
 ### set: Phpspec ObjectBehavior
 
 benchmark | mem_peak | best | mean | mode | worst | rstdev | diff
  --- | --- | --- | --- | --- | --- | --- | --- 
-PhpactorBench | 1,142,832b | 0.855ms | 1.042ms | 0.918ms | 1.552ms | 20.20% | 1.00x
-PhpstanBench | 1,778,264b | 3.626ms | 4.201ms | 3.791ms | 6.632ms | 18.37% | 4.03x
-PhpDocumentorBench | 1,477,600b | 2.054ms | 2.491ms | 2.203ms | 3.577ms | 19.74% | 2.39x
+PhpactorBench | 1,042,792b | 0.140ms | 0.245ms | 0.153ms | 0.429ms | 43.91% | 1.00x
+PhpstanBench | 1,669,136b | 0.837ms | 1.265ms | 0.905ms | 2.169ms | 37.95% | 5.15x
+PhpDocumentorBench | 1,385,912b | 0.444ms | 0.644ms | 0.485ms | 1.079ms | 35.72% | 2.63x
 
 ### set: Phpunit TestCase::create
 
 benchmark | mem_peak | best | mean | mode | worst | rstdev | diff
  --- | --- | --- | --- | --- | --- | --- | --- 
-PhpactorBench | 1,091,176b | 0.155ms | 0.210ms | 0.168ms | 0.310ms | 26.32% | 1.00x
-PhpstanBench | 1,279,464b | 0.627ms | 0.866ms | 0.738ms | 1.154ms | 20.52% | 4.12x
-PhpDocumentorBench | 1,512,136b | 0.694ms | 0.937ms | 0.782ms | 1.326ms | 22.96% | 4.46x
+PhpactorBench | 992,064b | 0.025ms | 0.039ms | 0.027ms | 0.084ms | 45.81% | 1.00x
+PhpstanBench | 1,170,496b | 0.154ms | 0.271ms | 0.166ms | 0.431ms | 43.11% | 6.91x
+PhpDocumentorBench | 1,355,424b | 0.144ms | 0.225ms | 0.157ms | 0.344ms | 33.93% | 5.72x
 
-### env
+## Environment
 
 provider | key | value
  --- | --- | --- 
@@ -77,18 +76,18 @@ uname | host | x1-debian
 uname | release | 4.18.0-2-amd64
 uname | version | #1 SMP Debian 4.18.10-2 (2018-11-02)
 uname | machine | x86_64
-php | xdebug | 1
+php | xdebug | 
 php | version | 7.2.9-1
-php | ini | /etc/php/7.2/cli/php.ini
-php | extensions | Core, date, libxml, openssl, pcre, zlib, filter, hash, pcntl, Reflection, SPL, session, sodium, standard, PDO, xml, bcmath, bz2, calendar, ctype, curl, dom, mbstring, fileinfo, ftp, gd, gettext, gmp, iconv, intl, json, exif, pdo_pgsql, pdo_sqlite, pgsql, Phar, posix, readline, shmop, SimpleXML, soap, sockets, sqlite3, sysvmsg, sysvsem, sysvshm, tokenizer, wddx, xmlreader, xmlwriter, xsl, Zend OPcache, xdebug
-opcache | extension_loaded | 1
-opcache | enabled | 
-unix-sysload | l1 | 1.43
-unix-sysload | l5 | 1.67
-unix-sysload | l15 | 1.73
+php | ini | 
+php | extensions | Core, date, libxml, openssl, pcre, zlib, filter, hash, pcntl, Reflection, SPL, session, sodium, standard
+opcache | extension_loaded | 
+unix-sysload | l1 | 2.2
+unix-sysload | l5 | 1.93
+unix-sysload | l15 | 1.91
 vcs | system | git
 vcs | branch | master
-vcs | version | a3c1e52ce1daa8fba2f8ae9eb5ce1c552339cbcd
-baseline | nothing | 0.15401840209961
-baseline | md5 | 1.0361671447754
-baseline | file_rw | 3.3500194549561
+vcs | version | 207b0a3dbfe19b020c01e561ca5e3cd294a26a9e
+baseline | nothing | 0.20313262939453
+baseline | md5 | 1.0261535644531
+baseline | file_rw | 3.5390853881836
+

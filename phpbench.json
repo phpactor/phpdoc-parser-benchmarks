@@ -1,6 +1,7 @@
 {
     "path": "lib/Benchmark",
     "bootstrap": "vendor/autoload.php",
+    "php_disable_ini": true,
     "reports": {
         "parser": {
             "extends": "aggregate",
