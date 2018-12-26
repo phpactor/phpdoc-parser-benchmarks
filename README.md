@@ -36,38 +36,42 @@ $ ./vendor/bin/phpbench run --report=parser
 
 Results (2018-12-26)
 --------------------
+
 ### set: Faker Generator
 
 benchmark | mem_peak | best | mean | mode | worst | rstdev | diff
  --- | --- | --- | --- | --- | --- | --- | --- 
-PhpactorBench | 1,196,144b | 0.324ms | 0.562ms | 0.414ms | 1.078ms | 44.28% | 1.00x
-PhpstanBench | 3,717,160b | 3.843ms | 5.128ms | 4.166ms | 8.687ms | 33.11% | 9.12x
+PhpactorBench | 1,196,144b | 0.382ms | 0.608ms | 0.415ms | 1.049ms | 45.01% | 1.00x
+PhpstanBench | 3,717,160b | 3.832ms | 4.780ms | 4.057ms | 8.423ms | 30.05% | 9.79x
 
 ### set: Laravel Route
 
 benchmark | mem_peak | best | mean | mode | worst | rstdev | diff
  --- | --- | --- | --- | --- | --- | --- | --- 
-PhpactorBench | 1,045,808b | 0.121ms | 0.245ms | 0.157ms | 0.396ms | 40.52% | 1.00x
-PhpstanBench | 1,901,232b | 1.173ms | 1.709ms | 1.267ms | 2.825ms | 37.19% | 6.97x
-PhpDocumentorBench | 1,442,752b | 0.597ms | 0.896ms | 0.665ms | 1.365ms | 33.81% | 3.65x
+PhpactorBench | 1,045,808b | 0.139ms | 0.203ms | 0.157ms | 0.395ms | 42.19% | 1.00x
+PhpstanBench | 1,901,232b | 1.153ms | 1.743ms | 1.269ms | 2.796ms | 36.80% | 8.09x
+PhpDocumentorBench | 1,442,752b | 0.615ms | 0.890ms | 0.659ms | 1.370ms | 34.35% | 4.20x
 
 ### set: Phpspec ObjectBehavior
 
 benchmark | mem_peak | best | mean | mode | worst | rstdev | diff
  --- | --- | --- | --- | --- | --- | --- | --- 
-PhpactorBench | 1,042,792b | 0.140ms | 0.245ms | 0.153ms | 0.429ms | 43.91% | 1.00x
-PhpstanBench | 1,669,136b | 0.837ms | 1.265ms | 0.905ms | 2.169ms | 37.95% | 5.15x
-PhpDocumentorBench | 1,385,912b | 0.444ms | 0.644ms | 0.485ms | 1.079ms | 35.72% | 2.63x
+PhpactorBench | 1,042,792b | 0.141ms | 0.235ms | 0.154ms | 0.407ms | 43.99% | 1.00x
+PhpstanBench | 1,669,136b | 0.844ms | 1.221ms | 0.889ms | 1.998ms | 39.39% | 5.76x
+PhpDocumentorBench | 1,385,912b | 0.445ms | 0.667ms | 0.477ms | 1.036ms | 35.31% | 3.09x
 
 ### set: Phpunit TestCase::create
 
 benchmark | mem_peak | best | mean | mode | worst | rstdev | diff
  --- | --- | --- | --- | --- | --- | --- | --- 
-PhpactorBench | 992,064b | 0.025ms | 0.039ms | 0.027ms | 0.084ms | 45.81% | 1.00x
-PhpstanBench | 1,170,496b | 0.154ms | 0.271ms | 0.166ms | 0.431ms | 43.11% | 6.91x
-PhpDocumentorBench | 1,355,424b | 0.144ms | 0.225ms | 0.157ms | 0.344ms | 33.93% | 5.72x
+PhpactorBench | 992,064b | 0.025ms | 0.043ms | 0.027ms | 0.107ms | 46.99% | 1.00x
+PhpstanBench | 1,170,496b | 0.137ms | 0.253ms | 0.164ms | 0.414ms | 44.88% | 6.13x
+PhpDocumentorBench | 1,355,424b | 0.145ms | 0.233ms | 0.157ms | 0.357ms | 32.02% | 5.86x
 
-## Environment
+Environment
+-----------
+
+### Suite #133f0ea6c4b2731d9c2eaec7fea167460c6f1324 2018-12-26 20:33:54
 
 provider | key | value
  --- | --- | --- 
@@ -81,13 +85,13 @@ php | version | 7.2.9-1
 php | ini | 
 php | extensions | Core, date, libxml, openssl, pcre, zlib, filter, hash, pcntl, Reflection, SPL, session, sodium, standard
 opcache | extension_loaded | 
-unix-sysload | l1 | 2.2
-unix-sysload | l5 | 1.93
-unix-sysload | l15 | 1.91
+unix-sysload | l1 | 1.71
+unix-sysload | l5 | 1.88
+unix-sysload | l15 | 1.83
 vcs | system | git
 vcs | branch | master
-vcs | version | 207b0a3dbfe19b020c01e561ca5e3cd294a26a9e
-baseline | nothing | 0.20313262939453
-baseline | md5 | 1.0261535644531
-baseline | file_rw | 3.5390853881836
+vcs | version | 13d11804e1a6915d2cdc506aa121389d58960f95
+baseline | nothing | 0.090837478637695
+baseline | md5 | 0.80704689025879
+baseline | file_rw | 1.9490718841553
 
