@@ -6,6 +6,7 @@ namespace Phpator\PhpdocParserBenchmarks;
  * @OutputTimeUnit("milliseconds")
  * @Iterations(10)
  * @Revs(50)
+ * @WarmUp(1)
  * @BeforeMethods({"setUp"})
  */
 abstract class ParserBenchCase
