@@ -23,13 +23,16 @@ Running
 -------
 
 ```
-git clone git@github.com:phpactor/phpdoc-parser-benchmarks
-composer install
-./vendor/bin/phpbench run --report=parser
+$ git clone git@github.com:phpactor/phpdoc-parser-benchmarks
+$ composer install
+$ ./vendor/bin/phpbench run --report=parser
 ```
 
 Results
 -------
+
+*Note that the Phpdocumentor docblock parser currently throws an exception when
+parsing the Faker docblock.*
 
 ```
 set: Faker generator
