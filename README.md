@@ -8,7 +8,7 @@ Some informal benchmarks for PHPDoc parsers using
 
 Parsers:
 
-- **Phpactor Parser**: An awful but very fast parser.
+- **Phpactor Parser**: An awful but fast parser for Phpactor.
 - **Phpstan Parser**: The parser used by PHPStan.
 - **PhpDocumentor Parser**: The parser used by PHPDocumentor.
 
