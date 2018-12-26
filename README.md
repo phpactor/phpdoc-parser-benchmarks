@@ -37,6 +37,15 @@ $ ./vendor/bin/phpbench run --report=parser
 Results (2018-12-26)
 --------------------
 
+**NOTE**: When running these benchmarks, there seem to be 2 peaks in each set,
+one high and one low, it is not certain which peak will be used in the
+calculation of these results, thereforre the results below should be taken
+with a pinch-of-salt.
+
+```
+$ ./vendor/bin/phpbench run --report=parser --report=env --iterations=100 --revs=50 --warmup=1 --progress=blinken
+```
+
 ### set: Faker Generator
 
 benchmark | mem_peak | best | mean | mode | worst | rstdev | diff
