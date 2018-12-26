@@ -6,7 +6,8 @@
         "parser": {
             "extends": "aggregate",
             "break": ["set"],
-            "cols": ["benchmark","mem_peak", "best", "mean", "mode", "worst", "rstdev", "diff"]
+            "cols": ["benchmark","mem_peak", "best", "mean", "mode", "worst", "rstdev", "diff"],
+            "diff_col": "mode"
         }
     }
 }
