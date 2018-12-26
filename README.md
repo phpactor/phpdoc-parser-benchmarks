@@ -13,7 +13,7 @@ Parsers:
 - **PhpDocumentor Parser**: The parser used by PHPDocumentor.
 
 Test data see (code
-[here](https://github.com/phpactor/phpdoc-parser-benchmarks/blob/master/lib/DocblockProvider.php):
+[here](https://github.com/phpactor/phpdoc-parser-benchmarks/blob/master/lib/DocblockProvider.php)):
 
 - **Faker Generator**: Large class docblock.
 - **Laravel Route**: Medium class docblock .
@@ -34,7 +34,7 @@ Results (2018-12-26)
 
 Based on 50 cycles in 100 revolutions with a single cycle warmup.
 
-*Note that the Phpdocumentor docblock parser currently throws an exception when
+*Note that the Phpdocumentor docblock parser currently throws an nexception when
 parsing the Faker docblock.*
 
 ### set: Faker Generator
@@ -68,3 +68,27 @@ PhpactorBench | 1,091,176b | 0.155ms | 0.210ms | 0.168ms | 0.310ms | 26.32% | 1.
 PhpstanBench | 1,279,464b | 0.627ms | 0.866ms | 0.738ms | 1.154ms | 20.52% | 4.12x
 PhpDocumentorBench | 1,512,136b | 0.694ms | 0.937ms | 0.782ms | 1.326ms | 22.96% | 4.46x
 
+### env
+
+provider | key | value
+ --- | --- | --- 
+uname | os | Linux
+uname | host | x1-debian
+uname | release | 4.18.0-2-amd64
+uname | version | #1 SMP Debian 4.18.10-2 (2018-11-02)
+uname | machine | x86_64
+php | xdebug | 1
+php | version | 7.2.9-1
+php | ini | /etc/php/7.2/cli/php.ini
+php | extensions | Core, date, libxml, openssl, pcre, zlib, filter, hash, pcntl, Reflection, SPL, session, sodium, standard, PDO, xml, bcmath, bz2, calendar, ctype, curl, dom, mbstring, fileinfo, ftp, gd, gettext, gmp, iconv, intl, json, exif, pdo_pgsql, pdo_sqlite, pgsql, Phar, posix, readline, shmop, SimpleXML, soap, sockets, sqlite3, sysvmsg, sysvsem, sysvshm, tokenizer, wddx, xmlreader, xmlwriter, xsl, Zend OPcache, xdebug
+opcache | extension_loaded | 1
+opcache | enabled | 
+unix-sysload | l1 | 1.43
+unix-sysload | l5 | 1.67
+unix-sysload | l15 | 1.73
+vcs | system | git
+vcs | branch | master
+vcs | version | a3c1e52ce1daa8fba2f8ae9eb5ce1c552339cbcd
+baseline | nothing | 0.15401840209961
+baseline | md5 | 1.0361671447754
+baseline | file_rw | 3.3500194549561
