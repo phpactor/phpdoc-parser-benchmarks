@@ -1,0 +1,10 @@
+{
+    "path": "lib/Benchmark",
+    "bootstrap": "vendor/autoload.php",
+    "reports": {
+        "parser": {
+            "extends": "aggregate",
+            "break": ["set"]
+        }
+    }
+}
