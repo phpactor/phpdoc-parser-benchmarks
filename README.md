@@ -29,40 +29,42 @@ $ composer install
 $ ./vendor/bin/phpbench run --report=parser
 ```
 
-Results
--------
+Results (2018-12-26)
+--------------------
+
+Based on 50 cycles in 100 revolutions with a single cycle warmup.
 
 *Note that the Phpdocumentor docblock parser currently throws an exception when
 parsing the Faker docblock.*
 
 ### set: Faker Generator
 
-benchmark | mem_peak | best | mean | mode | worst | rstdev
- --- | --- | --- | --- | --- | --- | --- 
-PhpactorBench | 1,295,416b | 2.180ms | 2.652ms | 2.491ms | 4.243ms | 20.89%
-PhpstanBench | 3,827,856b | 17.037ms | 18.646ms | 17.622ms | 25.568ms | 13.50%
+benchmark | mem_peak | best | mean | mode | worst | rstdev | diff
+ --- | --- | --- | --- | --- | --- | --- | --- 
+PhpactorBench | 1,295,448b | 2.354ms | 2.803ms | 2.490ms | 3.904ms | 18.04% | 1.00x
+PhpstanBench | 3,827,888b | 16.575ms | 17.443ms | 16.917ms | 23.565ms | 6.72% | 6.22x
 
 ### set: Laravel Route
 
-benchmark | mem_peak | best | mean | mode | worst | rstdev
- --- | --- | --- | --- | --- | --- | --- 
-PhpactorBench | 1,145,816b | 0.798ms | 1.197ms | 1.449ms | 1.512ms | 24.18%
-PhpstanBench | 2,010,936b | 5.311ms | 6.120ms | 5.610ms | 8.146ms | 14.98%
-PhpDocumentorBench | 1,601,992b | 3.253ms | 3.893ms | 3.365ms | 5.469ms | 22.07%
+benchmark | mem_peak | best | mean | mode | worst | rstdev | diff
+ --- | --- | --- | --- | --- | --- | --- | --- 
+PhpactorBench | 1,145,848b | 0.830ms | 1.042ms | 0.876ms | 1.450ms | 21.24% | 1.00x
+PhpstanBench | 2,010,968b | 5.109ms | 5.584ms | 5.318ms | 8.002ms | 11.93% | 5.36x
+PhpDocumentorBench | 1,602,024b | 3.159ms | 3.470ms | 3.279ms | 5.268ms | 15.54% | 3.33x
 
 ### set: Phpspec ObjectBehavior
 
-benchmark | mem_peak | best | mean | mode | worst | rstdev
- --- | --- | --- | --- | --- | --- | --- 
-PhpactorBench | 1,142,800b | 0.917ms | 1.172ms | 0.948ms | 1.553ms | 24.03%
-PhpstanBench | 1,778,232b | 3.757ms | 4.576ms | 3.959ms | 5.912ms | 19.58%
-PhpDocumentorBench | 1,477,568b | 1.967ms | 2.365ms | 2.268ms | 3.392ms | 15.17%
+benchmark | mem_peak | best | mean | mode | worst | rstdev | diff
+ --- | --- | --- | --- | --- | --- | --- | --- 
+PhpactorBench | 1,142,832b | 0.855ms | 1.042ms | 0.918ms | 1.552ms | 20.20% | 1.00x
+PhpstanBench | 1,778,264b | 3.626ms | 4.201ms | 3.791ms | 6.632ms | 18.37% | 4.03x
+PhpDocumentorBench | 1,477,600b | 2.054ms | 2.491ms | 2.203ms | 3.577ms | 19.74% | 2.39x
 
 ### set: Phpunit TestCase::create
 
-benchmark | mem_peak | best | mean | mode | worst | rstdev
- --- | --- | --- | --- | --- | --- | --- 
-PhpactorBench | 1,091,144b | 0.175ms | 0.247ms | 0.293ms | 0.303ms | 23.35%
-PhpstanBench | 1,279,432b | 0.746ms | 1.021ms | 0.802ms | 1.302ms | 23.13%
-PhpDocumentorBench | 1,512,104b | 0.814ms | 0.975ms | 0.871ms | 1.411ms | 21.60%
+benchmark | mem_peak | best | mean | mode | worst | rstdev | diff
+ --- | --- | --- | --- | --- | --- | --- | --- 
+PhpactorBench | 1,091,176b | 0.155ms | 0.210ms | 0.168ms | 0.310ms | 26.32% | 1.00x
+PhpstanBench | 1,279,464b | 0.627ms | 0.866ms | 0.738ms | 1.154ms | 20.52% | 4.12x
+PhpDocumentorBench | 1,512,136b | 0.694ms | 0.937ms | 0.782ms | 1.326ms | 22.96% | 4.46x
 

@@ -4,7 +4,8 @@
     "reports": {
         "parser": {
             "extends": "aggregate",
-            "break": ["set"]
+            "break": ["set"],
+            "cols": ["benchmark","mem_peak", "best", "mean", "mode", "worst", "rstdev", "diff"]
         }
     }
 }
