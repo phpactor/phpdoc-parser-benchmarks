@@ -7,9 +7,18 @@ use Phpator\PhpdocParserBenchmarks\ParserBenchCase;
 
 class PhpactorBench extends ParserBenchCase
 {
-    public function benchParse(array $params)
+    /**
+     * @var DocblockFactory
+     */
+    private $factory;
+
+    public function setUp(): void
     {
-        $factory = new DocblockFactory();
-        $factory->create($params['docblock']);
+        $this->factory = new DocblockFactory();
+    }
+
+    public function benchParse(array $params): void
+    {
+        $this->factory->create($params['docblock']);
     }
 }

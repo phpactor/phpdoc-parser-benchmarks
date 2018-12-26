@@ -12,13 +12,26 @@ use Phpator\PhpdocParserBenchmarks\ParserBenchCase;
 class PhpstanBench extends ParserBenchCase
 {
     /**
+     * @var Lexer
+     */
+    private $lexer;
+    /**
+     * @var PhpDocParser
+     */
+    private $parser;
+
+    public function setUp(): void
+    {
+        $this->lexer = new Lexer();
+        $this->parser = new PhpDocParser(new TypeParser(), new ConstExprParser());
+    }
+
+    /**
      * {@inheritDoc}
      */
-    public function benchParse(array $params)
+    public function benchParse(array $params): void
     {
-        $lexer = new Lexer();
-        $parser = new PhpDocParser(new TypeParser(), new ConstExprParser());
-        $tokens = new TokenIterator($lexer->tokenize($params['docblock']));
-        $parser->parse($tokens);
+        $tokens = new TokenIterator($this->lexer->tokenize($params['docblock']));
+        $this->parser->parse($tokens);
     }
 }

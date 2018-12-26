@@ -8,12 +8,21 @@ use phpDocumentor\Reflection\DocBlockFactory;
 class PhpDocumentorBench extends ParserBenchCase
 {
     /**
+     * @var DocBlockFactory
+     */
+    private $factory;
+
+    public function setUp(): void
+    {
+        $this->factory = DocBlockFactory::createInstance();
+    }
+
+    /**
      * {@inheritDoc}
      */
-    public function benchParse(array $params)
+    public function benchParse(array $params): void
     {
-        $factory = DocBlockFactory::createInstance();
-        $factory->create($params['docblock']);
+        $this->factory->create($params['docblock']);
     }
 
 }
